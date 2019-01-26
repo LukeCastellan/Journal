@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <drjava version="drjava-20160913-225446">
   <project autorefresh="false" build="bin/" main="Journal" manifest="" root="src/" work="">
-    <createjar file="Journal1.jar" flags="5"/>
+    <createjar file="Journal1.jar" flags="13"/>
     <source>
-      <file active="true" name="TextEditor.java" package="" timestamp="26-Jan-2019 15:38:58">
-        <select from="1517" to="1517"/>
-        <scroll column="439" row="0"/>
+      <file active="true" name="JournalIcons.java" package="" timestamp="26-Jan-2019 15:49:48">
+        <select from="215" to="215"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="FileHandler.java" package="" timestamp="26-Jan-2019 13:01:41">
-        <select from="1517" to="1517"/>
-        <scroll column="439" row="0"/>
+        <select from="215" to="215"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="OptionsHandler.java" package="" timestamp="26-Jan-2019 13:51:02">
-        <select from="1517" to="1517"/>
-        <scroll column="439" row="0"/>
+        <select from="215" to="215"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="EventHandler.java" package="" timestamp="26-Jan-2019 13:59:18">
-        <select from="1517" to="1517"/>
-        <scroll column="439" row="0"/>
+        <select from="215" to="215"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="Journal.java" package="" timestamp="26-Jan-2019 15:34:56">
-        <select from="1517" to="1517"/>
-        <scroll column="439" row="0"/>
+        <select from="215" to="215"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="TextEditor.java" package="" timestamp="26-Jan-2019 15:45:40">
+        <select from="215" to="215"/>
+        <scroll column="0" row="0"/>
       </file>
     </source>
     <included/>
@@ -29,6 +33,7 @@
     <collapsed/>
     <classpath>
       <file absolute="false" name="../lib/rsyntaxtextarea-3.0.2.jar"/>
+      <file absolute="false" name="../menuItems/"/>
     </classpath>
     <breakpoints/>
     <watches/>
