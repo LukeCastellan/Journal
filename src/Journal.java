@@ -10,11 +10,12 @@ public class Journal {
     //the filepath of the current open document. makes saving easier.
     //to do "save as", set this to "".
     public static String filePath;
-    public static boolean saved;
+    public static boolean saved = true;
     
     //the big bois
     public static TextEditor editor;
     public static EventHandler eventHandler = new EventHandler();
+    public static FileHandler fileHandler = new FileHandler();
     
     //this starts the app
     public static void main(String[] args) {

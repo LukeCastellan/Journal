@@ -11,7 +11,7 @@ import org.fife.ui.rsyntaxtextarea.*;
 public class TextEditor {
     
     //status and frame stuff.
-    public JFrame textEditor;
+    private JFrame textEditor;
     private JLabel statusLabel;
     private JMenu fileMenu, editMenu, toolMenu, helpMenu;
     
@@ -84,7 +84,7 @@ public class TextEditor {
         textEditor.setVisible(true);
     }
     
-    public void makeEditorBase() {
+    private void makeEditorBase() {
         textEditor = new JFrame("Journal");
         textEditor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         editorIcon = new ImageIcon("menuItems/journal.png");
@@ -92,7 +92,7 @@ public class TextEditor {
         textEditor.setSize(600, 600);
     }
     
-    public void makeEditorStatusBar() {
+    private void makeEditorStatusBar() {
         JPanel statusBar = new JPanel();
         //BevelBorder barBorder = new BevelBorder(BevelBorder.LOWERED);
         Dimension barDimension = new Dimension(textEditor.getWidth(), 16);
@@ -105,7 +105,7 @@ public class TextEditor {
         textEditor.add(statusBar, BorderLayout.SOUTH);
     }
     
-    public void makeEditorMenus() {
+    private void makeEditorMenus() {
         editorMenuBar = new JMenuBar();
         //menus
         fileMenu = new JMenu("File");
@@ -153,7 +153,7 @@ public class TextEditor {
         textEditor.setJMenuBar(editorMenuBar);
     }
     
-    public void makeEditorToolBar() {
+    private void makeEditorToolBar() {
         guiButtonBar = new JToolBar("Buttons");
         //button tooltips
         newFileButton.setToolTipText("New File");
@@ -184,7 +184,7 @@ public class TextEditor {
         textEditor.add(guiButtonBar, BorderLayout.NORTH);
     }
     
-    public void makeEditorTextEntry() {
+    private void makeEditorTextEntry() {
         /**
          * Override for Caret to always make colored text visible, not only when selected by mouse highlight 
          */ 
@@ -202,7 +202,7 @@ public class TextEditor {
         textEditor.add(textScrolling, BorderLayout.CENTER);
     }
     
-    public void setUpButtons() {
+    private void setUpButtons() {
         //this method is to set the action commands of each button, and then add the Event Handler
         newFileButton.setActionCommand("new");     newFileButton.addActionListener(Journal.eventHandler);
         openFileButton.setActionCommand("open");   openFileButton.addActionListener(Journal.eventHandler);
@@ -216,7 +216,7 @@ public class TextEditor {
         aboutButton.setActionCommand("about");     aboutButton.addActionListener(Journal.eventHandler);
     }
     
-    public void setUpMenuItems() {
+    private void setUpMenuItems() {
         //this method is to set the action commands, and then add the event handler.
         newFile.setActionCommand("new");          newFile.addActionListener(Journal.eventHandler);
         openFile.setActionCommand("open");        openFile.addActionListener(Journal.eventHandler);
@@ -233,7 +233,7 @@ public class TextEditor {
         System.out.println("event handlers added for menu items.");
     }
     
-    public static void setLookAndFeel() {
+    private void setLookAndFeel() {
         try {
             UIManager.setLookAndFeel( new net.sourceforge.napkinlaf.NapkinLookAndFeel());
             //UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
@@ -241,5 +241,9 @@ public class TextEditor {
             // ignore error
             System.out.println("an error occured.");
         }
+    }
+    
+    public void setStatus(String text) {
+        statusLabel.setText(text);
     }
 }
