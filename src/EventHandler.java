@@ -6,8 +6,10 @@ public class EventHandler implements ActionListener {
         //nothing to see here. just to set up a reference.
     }
     
-    //this is static, and so it's accessible from each and every EventHandler instance.
+    //this can't be static, but it will be accessible from each and every EventHandler instance.
     public void actionPerformed(ActionEvent event) {
+        
+        System.out.println("an action occurred: " +  event.getActionCommand());
         
         //yes, we have this code abomination below. it's to get the string
         //representing the action. to prevent any shenangans with CaSe, the string
@@ -16,6 +18,7 @@ public class EventHandler implements ActionListener {
         switch (event.getActionCommand().toLowerCase()) {
             case "exit":
                 //exit Journal. finish this.
+                System.exit(0);
                 break;
             
             case "new":
@@ -62,5 +65,5 @@ public class EventHandler implements ActionListener {
         }
     }
     
-    //we'll implement keyborad shortcuts in another update. let's get a working version first!
+    //we'll implement keyboard shortcuts in another update. let's get a working version first!
 }

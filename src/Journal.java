@@ -14,7 +14,7 @@ public class Journal {
     
     //the big bois
     public static TextEditor editor;
-    public static OptionsHandler optionsHandler = new OptionsHandler();
+    public static EventHandler eventHandler = new EventHandler();
     
     //this starts the app
     public static void main(String[] args) {
