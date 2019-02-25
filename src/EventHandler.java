@@ -23,6 +23,7 @@ public class EventHandler implements ActionListener {
                 if (Journal.saved/* || Journal.promptSave() != 2*/) { //2 is the 'cancel' option
                     System.exit(0);
                 }
+                
                 break;
             
             case "new":
@@ -31,6 +32,7 @@ public class EventHandler implements ActionListener {
                     Journal.editor.clearTextBox();
                     Journal.fileHandler = new FileHandler();
                     Journal.editor.setStatus("Ready.");
+                    Journal.editor.setTitle("New file -- Journal");
                 }
                 
                 break;
@@ -47,6 +49,7 @@ public class EventHandler implements ActionListener {
                         Journal.fileHandler = new FileHandler(explorer.getSelectedFile().toPath().toString());
                         Journal.editor.setText(Journal.fileHandler.readFile());
                         Journal.editor.setStatus("File opened.");
+                        Journal.editor.setTitle(explorer.getSelectedFile().getName() + " -- Journal");
                     } else {
                         Journal.editor.setStatus("Ready.");
                     }
@@ -61,12 +64,13 @@ public class EventHandler implements ActionListener {
                     Journal.editor.setStatus("Saving file...");
                     JFileChooser explorer = new JFileChooser();
                     explorer.setDialogTitle("Save the file...");
-                    int selection = explorer.showOpenDialog(Journal.editor.textEditor);
+                    int selection = explorer.showSaveDialog(Journal.editor.textEditor);
                     
                     if (selection == JFileChooser.APPROVE_OPTION) {
                         Journal.fileHandler = new FileHandler(explorer.getSelectedFile().toPath().toString());
                         Journal.fileHandler.writeTo(Journal.editor.getText());
                         Journal.editor.setStatus("File saved at: " + explorer.getSelectedFile().toPath().toString());
+                        Journal.editor.setTitle(explorer.getSelectedFile().getName() + " -- Journal");
                     }
                 } else {
                     //there is already a file path, so we simply save

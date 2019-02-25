@@ -266,4 +266,8 @@ public class TextEditor {
     public String getText() {
         return textZone.getText();
     }
+    
+    public void setTitle(String newTitle) {
+        textEditor.setTitle(newTitle);
+    }
 }
