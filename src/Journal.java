@@ -1,4 +1,4 @@
-//main class of the editor. stores and handles global stuff.
+ //main class of the editor. stores and handles global stuff.
 public class Journal {
     //everything here is static, since it will probably need to be accessed anywhere, if you decide to expand this in the future.
     
@@ -20,5 +20,10 @@ public class Journal {
     //this starts the app
     public static void main(String[] args) {
         editor = new TextEditor();
+    }
+    
+    //prompts the user to save, if they haven't already.
+    public static int promptSave() throws Exception {
+        return editor.promptSave(); //really, this belongs in the editor. sorry.
     }
 }

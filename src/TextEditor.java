@@ -11,7 +11,7 @@ import org.fife.ui.rsyntaxtextarea.*;
 public class TextEditor {
     
     //status and frame stuff.
-    private JFrame textEditor;
+    public JFrame textEditor;
     private JLabel statusLabel;
     private JMenu fileMenu, editMenu, toolMenu, helpMenu;
     
@@ -230,7 +230,7 @@ public class TextEditor {
         options.setActionCommand("options");      options.addActionListener(Journal.eventHandler);
         selectAll.setActionCommand("select all"); selectAll.addActionListener(Journal.eventHandler);
         about.setActionCommand("about");          about.addActionListener(Journal.eventHandler);
-        System.out.println("event handlers added for menu items.");
+        //System.out.println("event handlers added for menu items.");
     }
     
     private void setLookAndFeel() {
@@ -245,5 +245,25 @@ public class TextEditor {
     
     public void setStatus(String text) {
         statusLabel.setText(text);
+    }
+    
+    public int promptSave() throws Exception {
+        return JOptionPane.showConfirmDialog(null,
+            "Would you like to save your changes first?",
+            "Save your changes first?",
+            JOptionPane.YES_NO_CANCEL_OPTION
+        );
+    }
+    
+    public void clearTextBox() {
+        textZone.setText("");
+    }
+    
+    public void setText(String text) {
+        textZone.setText(text);
+    }
+    
+    public String getText() {
+        return textZone.getText();
     }
 }
