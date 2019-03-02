@@ -23,7 +23,11 @@ public class TextEditor {
     
     //text stuff
     private StyledDocument zoneDoc;
-    private JTextPane textZone;
+    //private JTextPane textZone;
+    
+    //rsyntaxtextarea stuff
+    RSyntaxTextArea textZone = new RSyntaxTextArea(20, 20);
+    RTextScrollPane scrollpane = new RTextScrollPane(textZone);
     
     //icons
     private ImageIcon editorIcon = new ImageIcon(getClass().getResource("/menuItems/journal.png")),
@@ -193,13 +197,18 @@ public class TextEditor {
                 return true;
             }
         };
-        textZone = new JTextPane();
-        JScrollPane textScrolling = new JScrollPane(textZone);
-        zoneDoc = (StyledDocument) textZone.getDocument();
-        textZone.setCaret(caret);
-        textZone.setFont(Options.font);
-        textScrolling.setBounds(0,0,600,600);
-        textEditor.add(textScrolling, BorderLayout.CENTER);
+        //textZone = new JTextPane();
+        //JScrollPane textScrolling = new JScrollPane(textZone);
+        //zoneDoc = (StyledDocument) textZone.getDocument();
+        //textZone.setCaret(caret);
+        //textZone.setFont(Options.font);
+        //textScrolling.setBounds(0,0,600,600);
+        //textEditor.add(textScrolling, BorderLayout.CENTER);
+        
+        //new code
+        textZone.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_JAVA);
+        textZone.setCodeFoldingEnabled(true);
+        textEditor.add(scrollpane, BorderLayout.CENTER);
     }
     
     private void setUpButtons() {

@@ -3,36 +3,36 @@
   <project autorefresh="false" build="bin/" main="Journal" manifest="Main-Class: Journal&#10;Class-Path: jdom-1.0.jar napkinlaf.jar napkinlaf-swingset-1.2.jar rsyntaxtextarea-3.0.2.jar" root="src/" work="">
     <createjar file="Journal.jar" flags="13"/>
     <source>
-      <file active="true" name="Options.java" package="" timestamp="28-Jan-2019 13:53:02">
-        <select from="221" to="221"/>
-        <scroll column="0" row="0"/>
+      <file active="true" name="TextEditor.java" package="" timestamp="01-Mar-2019 20:54:09">
+        <select from="8493" to="8493"/>
+        <scroll column="3374" row="0"/>
       </file>
-      <file name="FileHandler.java" package="" timestamp="25-Feb-2019 12:10:40">
-        <select from="221" to="221"/>
-        <scroll column="0" row="0"/>
+      <file name="Options.java" package="" timestamp="28-Jan-2019 13:53:02">
+        <select from="8493" to="8493"/>
+        <scroll column="3374" row="0"/>
       </file>
-      <file name="Journal.java" package="" timestamp="25-Feb-2019 12:10:40">
-        <select from="221" to="221"/>
-        <scroll column="0" row="0"/>
+      <file name="FileHandler.java" package="" timestamp="25-Feb-2019 12:19:20">
+        <select from="8493" to="8493"/>
+        <scroll column="3374" row="0"/>
       </file>
-      <file name="TextEditor.java" package="" timestamp="25-Feb-2019 12:12:15">
-        <select from="221" to="221"/>
-        <scroll column="0" row="0"/>
+      <file name="Journal.java" package="" timestamp="25-Feb-2019 12:19:20">
+        <select from="8493" to="8493"/>
+        <scroll column="3374" row="0"/>
       </file>
-      <file name="EventHandler.java" package="" timestamp="25-Feb-2019 12:15:54">
-        <select from="221" to="221"/>
-        <scroll column="0" row="0"/>
+      <file name="EventHandler.java" package="" timestamp="01-Mar-2019 20:56:36">
+        <select from="8493" to="8493"/>
+        <scroll column="3374" row="0"/>
       </file>
     </source>
     <included/>
     <excluded/>
     <collapsed/>
     <classpath>
-      <file absolute="false" name="../lib/rsyntaxtextarea-3.0.2.jar"/>
-      <file absolute="false" name="../menuItems/"/>
-      <file absolute="false" name="../lib/jdom-1.0.jar"/>
-      <file absolute="false" name="../lib/napkinlaf-1.2.jar"/>
-      <file absolute="false" name="../lib/napkinlaf-swingset-1.2.jar"/>
+      <file absolute="true" name="C:/java/journal/src/../lib/rsyntaxtextarea-3.0.2.jar"/>
+      <file absolute="true" name="C:/java/journal/src/../menuItems"/>
+      <file absolute="true" name="C:/java/journal/src/../lib/jdom-1.0.jar"/>
+      <file absolute="true" name="C:/java/journal/src/../lib/napkinlaf-1.2.jar"/>
+      <file absolute="true" name="C:/java/journal/src/../lib/napkinlaf-swingset-1.2.jar"/>
     </classpath>
     <breakpoints/>
     <watches/>
