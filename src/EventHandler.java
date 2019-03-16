@@ -32,7 +32,7 @@ public class EventHandler implements ActionListener {
                     Journal.editor.clearTextBox();
                     Journal.fileHandler = new FileHandler();
                     Journal.editor.setStatus("Ready.");
-                    Journal.editor.setTitle("New file -- Journal");
+                    Journal.editor.setTitle("New file - Journal");
                     Journal.editor.setSyntax("/dummy path/");
                 }
                 
@@ -49,7 +49,7 @@ public class EventHandler implements ActionListener {
                         Journal.fileHandler = new FileHandler(Journal.editor.getExplorer().getSelectedFile().toPath().toString());
                         Journal.editor.setText(Journal.fileHandler.readFile());
                         Journal.editor.setStatus("File opened.");
-                        Journal.editor.setTitle(Journal.editor.getExplorer().getSelectedFile().getName() + " -- Journal");
+                        Journal.editor.setTitle(Journal.editor.getExplorer().getSelectedFile().getName() + " - Journal");
                         Journal.editor.setSyntax(Journal.editor.getExplorer().getSelectedFile().toPath().toString());
                     } else {
                         Journal.editor.setStatus("Ready.");
@@ -70,7 +70,7 @@ public class EventHandler implements ActionListener {
                         Journal.fileHandler = new FileHandler(Journal.editor.getExplorer().getSelectedFile().toPath().toString());
                         Journal.fileHandler.writeTo(Journal.editor.getText());
                         Journal.editor.setStatus("File saved at: " + Journal.editor.getExplorer().getSelectedFile().toPath().toString());
-                        Journal.editor.setTitle(Journal.editor.getExplorer().getSelectedFile().getName() + " -- Journal");
+                        Journal.editor.setTitle(Journal.editor.getExplorer().getSelectedFile().getName() + " - Journal");
                         Journal.editor.setSyntax(Journal.editor.getExplorer().getSelectedFile().toPath().toString());
                     }
                 } else {

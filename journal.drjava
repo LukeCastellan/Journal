@@ -3,25 +3,25 @@
   <project autorefresh="false" build="bin/" main="Journal" manifest="Main-Class: Journal&#10;Class-Path: jdom-1.0.jar napkinlaf.jar napkinlaf-swingset-1.2.jar rsyntaxtextarea-3.0.2.jar" root="src/" work="">
     <createjar file="Journal.jar" flags="13"/>
     <source>
-      <file active="true" name="TextEditor.java" package="" timestamp="15-Mar-2019 19:44:34">
-        <select from="12211" to="12211"/>
-        <scroll column="4627" row="0"/>
+      <file active="true" name="TextEditor.java" package="" timestamp="16-Mar-2019 08:23:46">
+        <select from="3256" to="3256"/>
+        <scroll column="892" row="0"/>
       </file>
       <file name="Options.java" package="" timestamp="15-Mar-2019 08:19:34">
-        <select from="12211" to="12211"/>
-        <scroll column="4627" row="0"/>
+        <select from="3256" to="3256"/>
+        <scroll column="892" row="0"/>
       </file>
       <file name="FileHandler.java" package="" timestamp="15-Mar-2019 08:19:34">
-        <select from="12211" to="12211"/>
-        <scroll column="4627" row="0"/>
+        <select from="3256" to="3256"/>
+        <scroll column="892" row="0"/>
       </file>
       <file name="Journal.java" package="" timestamp="15-Mar-2019 19:32:46">
-        <select from="12211" to="12211"/>
-        <scroll column="4627" row="0"/>
+        <select from="3256" to="3256"/>
+        <scroll column="892" row="0"/>
       </file>
-      <file name="EventHandler.java" package="" timestamp="15-Mar-2019 19:44:16">
-        <select from="12211" to="12211"/>
-        <scroll column="4627" row="0"/>
+      <file name="EventHandler.java" package="" timestamp="16-Mar-2019 08:12:38">
+        <select from="3256" to="3256"/>
+        <scroll column="892" row="0"/>
       </file>
     </source>
     <included/>

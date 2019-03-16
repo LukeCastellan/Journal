@@ -16,18 +16,17 @@ public class TextEditor {
     private JMenu fileMenu, editMenu, toolMenu, helpMenu;
     
     //menu bars
-    private JMenuBar editorMenuBar = new JMenuBar();
+    private JMenuBar editorMenuBar;
     private JToolBar guiButtonBar;
-    private JFileChooser explorer = new JFileChooser();
+    private JFileChooser explorer;
     private JDialog optionsMenu;
     
     //text stuff
     private StyledDocument zoneDoc;
-    //private JTextPane textZone;
     
     //rsyntaxtextarea stuff
-    RSyntaxTextArea textZone = new RSyntaxTextArea(20, 20);
-    RTextScrollPane scrollpane = new RTextScrollPane(textZone);
+    RSyntaxTextArea textZone;
+    RTextScrollPane scrollpane;
     
     //icons
     private ImageIcon editorIcon = new ImageIcon(getClass().getResource("/menuItems/journal.png")),
@@ -75,6 +74,9 @@ public class TextEditor {
         //set look and feel has to be first
         setLookAndFeel();
         
+        textZone = new RSyntaxTextArea(20, 20);
+        scrollpane = new RTextScrollPane(textZone);
+        
         makeEditorBase();
         makeEditorStatusBar();
         makeEditorTextEntry();
@@ -89,11 +91,12 @@ public class TextEditor {
     }
     
     private void makeEditorBase() {
-        textEditor = new JFrame("Journal");
+        textEditor = new JFrame("New File - Journal");
         textEditor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         editorIcon = new ImageIcon("menuItems/journal.png");
         textEditor.setIconImage(editorIcon.getImage());
         textEditor.setSize(600, 600);
+        explorer = new JFileChooser();
     }
     
     private void makeEditorStatusBar() {
@@ -278,22 +281,30 @@ public class TextEditor {
     }
 
     public void setSyntax(String path) {
-        //get the file extension first
-        String strFileExtension = "";
+        //get the file extension first, courtesy of Stack Overflow
+        String ext = "";
             
         int intLastDotPosition = path.lastIndexOf(".");
         int intLastSlashPosition = path.lastIndexOf("/");
             
         if(intLastDotPosition > intLastSlashPosition){
-            strFileExtension = path.substring(intLastDotPosition + 1);
+            ext = path.substring(intLastDotPosition + 1);
         }
         
-        switch (strFileExtension) {
+        switch (ext) {
             //fill in everything, in alphabetical order
             //refer to this:
             // https://github.com/bobbylight/RSyntaxTextArea/blob/a13962de37b019cbb4423a472c96dbc0924a69c3/RSyntaxTextArea/src/main/java/org/fife/ui/rsyntaxtextarea/SyntaxConstants.java
             case "cs":
                 textZone.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_CSHARP);
+                textZone.setCodeFoldingEnabled(true);
+                break;
+            case "css":
+                textZone.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_CSS);
+                textZone.setCodeFoldingEnabled(true);
+                break;
+            case "html":
+                textZone.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_HTML);
                 textZone.setCodeFoldingEnabled(true);
                 break;
             case "java":
@@ -302,6 +313,10 @@ public class TextEditor {
                 break;
             case "js":
                 textZone.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_JAVASCRIPT);
+                textZone.setCodeFoldingEnabled(true);
+                break;
+            case "py":
+                textZone.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_PYTHON);
                 textZone.setCodeFoldingEnabled(true);
                 break;
             default:
