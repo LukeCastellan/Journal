@@ -33,6 +33,7 @@ public class EventHandler implements ActionListener {
                     Journal.fileHandler = new FileHandler();
                     Journal.editor.setStatus("Ready.");
                     Journal.editor.setTitle("New file -- Journal");
+                    Journal.editor.setSyntax("/dummy path/");
                 }
                 
                 break;
@@ -41,15 +42,15 @@ public class EventHandler implements ActionListener {
                 //open a file. finish this.
                 if (Journal.saved/* || Journal.promptSave() != 2*/) {
                     Journal.editor.setStatus("Opening a file...");
-                    JFileChooser explorer = new JFileChooser();
-                    explorer.setDialogTitle("Open a file...");
-                    int selection = explorer.showOpenDialog(Journal.editor.textEditor);
+                    Journal.editor.getExplorer().setDialogTitle("Open a file...");
+                    int selection = Journal.editor.getExplorer().showOpenDialog(Journal.editor.textEditor);
                     
                     if (selection == JFileChooser.APPROVE_OPTION) {
-                        Journal.fileHandler = new FileHandler(explorer.getSelectedFile().toPath().toString());
+                        Journal.fileHandler = new FileHandler(Journal.editor.getExplorer().getSelectedFile().toPath().toString());
                         Journal.editor.setText(Journal.fileHandler.readFile());
                         Journal.editor.setStatus("File opened.");
-                        Journal.editor.setTitle(explorer.getSelectedFile().getName() + " -- Journal");
+                        Journal.editor.setTitle(Journal.editor.getExplorer().getSelectedFile().getName() + " -- Journal");
+                        Journal.editor.setSyntax(Journal.editor.getExplorer().getSelectedFile().toPath().toString());
                     } else {
                         Journal.editor.setStatus("Ready.");
                     }
@@ -62,15 +63,15 @@ public class EventHandler implements ActionListener {
                 //save file. finish this.
                 if (Journal.fileHandler.getPath() == "") {
                     Journal.editor.setStatus("Saving file...");
-                    JFileChooser explorer = new JFileChooser();
-                    explorer.setDialogTitle("Save the file...");
-                    int selection = explorer.showSaveDialog(Journal.editor.textEditor);
+                    Journal.editor.getExplorer().setDialogTitle("Save the file...");
+                    int selection = Journal.editor.getExplorer().showSaveDialog(Journal.editor.textEditor);
                     
                     if (selection == JFileChooser.APPROVE_OPTION) {
-                        Journal.fileHandler = new FileHandler(explorer.getSelectedFile().toPath().toString());
+                        Journal.fileHandler = new FileHandler(Journal.editor.getExplorer().getSelectedFile().toPath().toString());
                         Journal.fileHandler.writeTo(Journal.editor.getText());
-                        Journal.editor.setStatus("File saved at: " + explorer.getSelectedFile().toPath().toString());
-                        Journal.editor.setTitle(explorer.getSelectedFile().getName() + " -- Journal");
+                        Journal.editor.setStatus("File saved at: " + Journal.editor.getExplorer().getSelectedFile().toPath().toString());
+                        Journal.editor.setTitle(Journal.editor.getExplorer().getSelectedFile().getName() + " -- Journal");
+                        Journal.editor.setSyntax(Journal.editor.getExplorer().getSelectedFile().toPath().toString());
                     }
                 } else {
                     //there is already a file path, so we simply save

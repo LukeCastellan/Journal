@@ -18,7 +18,7 @@ public class TextEditor {
     //menu bars
     private JMenuBar editorMenuBar = new JMenuBar();
     private JToolBar guiButtonBar;
-    private JFileChooser explorer;
+    private JFileChooser explorer = new JFileChooser();
     private JDialog optionsMenu;
     
     //text stuff
@@ -100,7 +100,7 @@ public class TextEditor {
         JPanel statusBar = new JPanel();
         //BevelBorder barBorder = new BevelBorder(BevelBorder.LOWERED);
         Dimension barDimension = new Dimension(textEditor.getWidth(), 16);
-        statusLabel = new JLabel("Status:");
+        statusLabel = new JLabel("Welcome to Journal.");
         statusLabel.setHorizontalAlignment(SwingConstants.LEFT);
         //statusBar.setBorder(barBorder);
         statusBar.setPreferredSize(barDimension);
@@ -197,13 +197,6 @@ public class TextEditor {
                 return true;
             }
         };
-        //textZone = new JTextPane();
-        //JScrollPane textScrolling = new JScrollPane(textZone);
-        //zoneDoc = (StyledDocument) textZone.getDocument();
-        //textZone.setCaret(caret);
-        //textZone.setFont(Options.font);
-        //textScrolling.setBounds(0,0,600,600);
-        //textEditor.add(textScrolling, BorderLayout.CENTER);
         
         //new code
         textZone.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_JAVA);
@@ -276,7 +269,44 @@ public class TextEditor {
         return textZone.getText();
     }
     
+    public JFileChooser getExplorer() {
+        return explorer;
+    }
+    
     public void setTitle(String newTitle) {
         textEditor.setTitle(newTitle);
+    }
+
+    public void setSyntax(String path) {
+        //get the file extension first
+        String strFileExtension = "";
+            
+        int intLastDotPosition = path.lastIndexOf(".");
+        int intLastSlashPosition = path.lastIndexOf("/");
+            
+        if(intLastDotPosition > intLastSlashPosition){
+            strFileExtension = path.substring(intLastDotPosition + 1);
+        }
+        
+        switch (strFileExtension) {
+            //fill in everything, in alphabetical order
+            //refer to this:
+            // https://github.com/bobbylight/RSyntaxTextArea/blob/a13962de37b019cbb4423a472c96dbc0924a69c3/RSyntaxTextArea/src/main/java/org/fife/ui/rsyntaxtextarea/SyntaxConstants.java
+            case "cs":
+                textZone.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_CSHARP);
+                textZone.setCodeFoldingEnabled(true);
+                break;
+            case "java":
+                textZone.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_JAVA);
+                textZone.setCodeFoldingEnabled(true);
+                break;
+            case "js":
+                textZone.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_JAVASCRIPT);
+                textZone.setCodeFoldingEnabled(true);
+                break;
+            default:
+                textZone.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_NONE);
+                textZone.setCodeFoldingEnabled(false);
+        }
     }
 }

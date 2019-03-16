@@ -1,4 +1,4 @@
- //main class of the editor. stores and handles global stuff.
+//main class of the editor. stores and handles global stuff.
 public class Journal {
     //everything here is static, since it will probably need to be accessed anywhere, if you decide to expand this in the future.
     
